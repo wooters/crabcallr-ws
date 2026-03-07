@@ -25,11 +25,6 @@ export function createHealthHandler(connectionManager: ConnectionManager) {
       },
     };
 
-    // Mark as degraded if no agents are connected
-    if (status.connections.agents === 0) {
-      status.status = 'degraded';
-    }
-
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(status));
   };
