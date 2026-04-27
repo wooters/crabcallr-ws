@@ -155,7 +155,7 @@ export function handleAgentConnection(
         message.startedAt
       );
       connectionManager.unregisterCall(message.callId);
-      await reportUsage(message.userId, message.durationSeconds, message.source, message.startedAt);
+      await reportUsage(message.userId, message.durationSeconds, message.source, message.startedAt, message.callId);
       return;
     }
 

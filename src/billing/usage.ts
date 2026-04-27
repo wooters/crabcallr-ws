@@ -10,7 +10,8 @@ export async function reportUsage(
   userId: string,
   durationSeconds: number,
   sessionType: CallSource,
-  startedAt: number
+  startedAt: number,
+  callId?: string
 ): Promise<void> {
   if (durationSeconds <= 0) {
     console.log(`Skipping usage report for ${userId}: duration ${durationSeconds}s`);
@@ -34,6 +35,7 @@ export async function reportUsage(
         duration_seconds: durationSeconds,
         session_type: sessionType,
         started_at: startedAt,
+        call_id: callId || null,
       }),
     });
 
